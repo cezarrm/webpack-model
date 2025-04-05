@@ -3,7 +3,7 @@ const path = require('path'); //CommonJS sistema do node
 module.exports = {
     //tudo que estiver no objeto vai ser exportado;
     mode: 'production', //duas opções development = arquivo gerado mais rapido e n é minificado, 
-    entry: './src/index.js',
+    entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'public', 'assets', 'js'),
         filename: 'bundle.js'
@@ -18,6 +18,9 @@ module.exports = {
                 presets: ['@babel/env']
             } 
            }
+        }, { 
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
         }]
     },
     devtool: 'source-map', //faz o mapeamento
